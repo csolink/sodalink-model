@@ -9,7 +9,7 @@ nav_order: 5
 
 The Sodalink Model is under constant development with new classes and slots being added on a monthly basis.
 
-This rapid development of the model may cause tools that directly depend on the model to break. To avoid such a scenario any tool that uses Sodalink Model YAML (or it artifacts) must pin to a particular release. A full list of releases can be found on [GitHub](https://github.com/sodalink/sodalink-model/releases)
+This rapid development of the model may cause tools that directly depend on the model to break. To avoid such a scenario any tool that uses Sodalink Model YAML (or it artifacts) must pin to a particular release. A full list of releases can be found on [GitHub](https://github.com/csolink/sodalink-model/releases)
 
 
 This section will address the strategies for maintaining the Sodalink Model.
@@ -59,7 +59,7 @@ It's recommended that deprecated classes and slots remain in the model until the
 
 LinkML consumes the Sodalink Model YAML and generates several artifacts.
 
-This step is automated as part of [GitHub Actions](https://github.com/sodalink/sodalink-model/actions). 
+This step is automated as part of [GitHub Actions](https://github.com/csolink/sodalink-model/actions). 
 
 That means no pull request to the Sodalink Model repo should include updates to the artifacts themselves. In 99% of the cases any changes in a PR ought to be confined to `sodalink-model.yaml`.
 
@@ -68,8 +68,8 @@ That means no pull request to the Sodalink Model repo should include updates to 
 
 LinkML consumes the Sodalink Model YAML and also generates Markdown for all the classes and slots defined in the model.
 
-This step is automated as part of [GitHub Actions](https://github.com/sodalink/sodalink-model/actions) where changes in Markdown content are pushed to the `gh-pages` branch. 
+This step is automated as part of [GitHub Actions](https://github.com/csolink/sodalink-model/actions) where changes in Markdown content are pushed to the `gh-pages` branch. 
 
 The [Sodalink Model Documentation](https://sodalink.github.io/sodalink-model/) site is driven from the `gh-pages` branch.
 
-That means no pull request to the Sodalink Model repo should include generated Markdown. It is advised to ensure that [GitHub Actions](https://github.com/sodalink/sodalink-model/actions) remain disabled in the fork from which pull requests are made back to the main Sodalink repository.
+That means no pull request to the Sodalink Model repo should include generated Markdown. It is advised to ensure that [GitHub Actions](https://github.com/csolink/sodalink-model/actions) remain disabled in the fork from which pull requests are made back to the main Sodalink repository.
