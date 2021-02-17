@@ -1,0 +1,31 @@
+title: Sodalink Model
+email: noel.mcloughlin@gmail.com
+description: A high level datamodel for representing SODA Foundation entities and their associations.
+
+logo: "/assets/images/csolink-logo.png"
+
+remote_theme: deepakunni3/just-the-docs
+
+aux_links:
+  "Sodalink Model on GitHub":
+    - "//github.com/csolink/sodalink-model"
+
+ga_tracking: UA-157380109-1
+
+search_enabled: true
+heading_anchors: true
+
+# footer_content: "SodaLink Model"
+
+collections:
+  docs:
+    output: true
+  about:
+    output: true
+  guidelines:
+    output: true
+
+includes:
+- about
+- guidelines
+- index.md
