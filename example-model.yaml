@@ -1,9 +1,7 @@
-id: http://example.org/sample/organization
-name: organization
+id: http://example.org/sample/soda_foundation
+name: soda foundation
 specification: https://biolink.github.io/biolinkml/SPECIFICATION
 
-# keys are prefixes, values are URI bases
-# --
 prefixes:
   biolinkml: https://w3id.org/biolink/biolinkml/
   ex: https://example.org/example-schema#
@@ -12,17 +10,11 @@ prefixes:
 
 default_prefix: ex
 
-# ordered list of prefixcommon biocontexts to be fetched
-# to resolve id prefixes and inline prefix variables
-# see: https://github.com/prefixcommons/biocontext/tree/master/registry
 # is: rdf rdfs owl xsd dc dcterms faldo foaf oa idot void prov dcat
-# --
 default_curi_maps:
   - semweb_context
 
 # prefixes from public standard global namespaces used
-# in the model (e.g. rdf) are indicated
-# --
 emit_prefixes:
   - rdf
   - rdfs
@@ -33,7 +25,11 @@ emit_prefixes:
 imports:
   - biolinkml:types
 
-subsets: ...
+subsets:
+
+  project:
+    description: >-
+      Soda projects
 
 # Main schema follows
 types:
@@ -46,7 +42,48 @@ types:
 
 classes:
 
-  organization:
+  api:
+    description: >-
+      SODA API is an open source implementation of SODA API
+      Standards for Data and Storage Management.
+    slots:
+      - is core project
+
+  dock:
+    description: >-
+      SODA Dock is an open source implementation for the unified
+      interface to connect heterogeneous storage backends.
+    slots:
+      - is core project
+
+  nbp:
+    description: >-
+      NorthBoundPlugins for platforms and clients to connect
+      to SODA Data Framework
+    slots:
+      - is core project
+
+  multicloud:
+    description: >-
+      SODA Multi-cloud project provides a cloud vendor agnostic
+      data management for hybrid cloud, intercloud or intracloud.
+    slots:
+      - is core project
+
+  delfin:
+    description: >-
+      Delfin is the SODA Infrastructure Manager project which
+      provides unified, intelligent and scalable resource
+      management, alert and performance monitoring
+    slots:
+      - is core project
+
+  installer:
+    description: >-
+      provides easy installation and basic deployment based on
+      specific configurations for SODA Projects
+
+  soda foundation:
     slots:
       - id
       - name
@@ -70,12 +107,19 @@ classes:
     slots:
       - has employees
 
-# Slots are properties that can be assigned to classes. The
-# set of slots available are defined in a slot dictionary,
-# declared at the schema level. Each key in the dictionary
-# is the slot name. The slot name must be unique.
-# --
 slots:
+
+## --------------------
+## ATTRIBUTE SLOTS
+## --------------------
+
+  is core project:
+    is_a: association slot
+    domain: soda foundation
+    range: boolean
+    description: >-
+      Indicates if the soda foundation project is a core project
+
   id:
     description: Unique identifier of a person
     identifier: true
@@ -109,3 +153,14 @@ slots:
   has boss:
     range: manager
     inlined: true
+
+## --------------------
+## ASSOCIATION SLOTS
+## --------------------
+
+  association slot:
+    abstract: true
+    domain: association
+    aliases: ['edge property', 'statement property']
+    description: >-
+      any slot that relates an association to another entity

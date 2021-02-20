@@ -1,0 +1,13 @@
+## NOTE: this file is the SOURCE for the Soda JSON-LD context.
+##
+## To make the json version, type:
+##    make conf/soda-context.yaml
+
+"@context":
+  
+  ##
+  ## -- Soda schema prefixes --
+  ##
+  
+  soda_gh: https://github.com/sodafoundation/
+  soda_www: https://sodafoundation.io/
