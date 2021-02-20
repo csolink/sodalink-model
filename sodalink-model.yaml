@@ -2,109 +2,12 @@ id: https://w3id.org/sodalink/sodalink-model
 name: Sodalink-Model
 description: Entity and association taxonomy and datamodel for computer services data
 license: https://creativecommons.org/publicdomain/zero/1.0/
+specification: https://biolink.github.io/biolinkml/SPECIFICATION
 
 # todo: rr, XAPI
 
 # Version should be kept in sync with primary Git repository release tag
 version: 0.0.0
-
-## ------------
-## BIO-2-CSO-MAPPINGS
-## ------------
-## The sodalink-model (Computer Systems Ontology) is a transformation of Biolink model,
-## focused on systems service modeling. The translation references two standards:
-##
-## - Service Availability. Principles and Practice (isbn: 978-1-119-95408-8)
-## - Kubernetes project: hyperscale architecture (https://kubernetes.io/docs/concepts/)
-#
-## MAPPINGS ##
-#
-## [bB]iology = [cC]omputing
-## [cC]hemistry = [o]rchestration
-## [bB]iological = [cC]-omputational
-## [b]iomedical = [c]omputational [e]ngineering
-## [bB]ody = [cC]omputer
-## [cC]hemical = [c]ontrol
-## [cC]hemical [sS]ubstance = [c]ontrol [a]ctor
-## [cC]hemical [fF]ormula = [cC]ontrol [pP]lane
-## [cC]linical = [eE]mpirical
-## [dD]rug = [aA]dministrative [oO]peration
-## [pP]hysically = [cC]yber ([i]nteraction)
-## [mM]edical = [eE]ngineering
-## [m]esh [t]erms = [s]umo [t]erms
-## [m]edication = [e]ngineering
-## [pP]henotypic = [oO]bservable
-## [pP]henotype = [oO]bservable f-eatures
-## [oO]rganism = [sS]ystem
-## [oO]rganism p-art = [sS]ub[s]ystem
-## [oO]rganismal = [sS]ystemic
-## [Dd]isease = [eE]rror
-## [fF]ood = [n]otification
-## [z]ygosity = h-omogeneity
-## [h]as z-ygosity = has h-omogeneity
-## [b]iologic = c-ompulogic
-## [r]eceptor = [g]ateway
-## [s]ex = [aA]rchitectural s-tyle
-## [s]exually = [a]rchitecture_style
-## [mM]utate = [uU]pdate
-## [mM]utation = [uU]pdates
-## [pP]athological = [fF]aulty
-## [e]xcipient = [m]edium
-## [s]ecretion = [o]utput
-## [g]land = [c]ompute[h]ost
-## [c]onstituent = [c]ontrol [p]lane
-## [m]aterial = [r]esource
-## [p]rocessed = [c]onsumed
-## [e]xpression = [a]vailability
-## [f]olding = [a]ssignment
-## [B]iolinkML = [l]inkML
-## [s]ynthesis = [i]nstantiation
-## [pP]hysiological = [l]ogical
-## [c]arbohydrate = [p]ower [s]upply
-## [n]utrient = [d]ata
-## [v]itamin = [me]essage
-## [m]icro[n]utrient = [b]itstream
-## [b]iomarker = [m]arker
-## [f]rameshift = [p]rotocol
-
-#### servicetypes
-## [c]ontig = [n]amespace
-## [pP]rotein = [s]erviceinstance
-## [e]xon = [d]aemon
-## [c]hromosome = [c]ontainer
-## [gG]enome = [g]enomic = [w]orkload
-## [gG]enetic = [sS]ervice
-## [gG]ene p-roduct = [s]ervicetype
-## [gG]enotype = [p]odtype   # [s]ervice [u]nit [t]ype
-## [t]ranscript = [c]omponent[s]ervice[i]nstance
-## [gG]ene = [c]omponent[s]ervice
-## [aA]llele = [v]ariant[c]omponent[s]ervice
-## [h]aplotype = [v]ariant[c]omponent[s]ervice[t]ype
-
-#### platformtypes
-## [mM]ixture = [c]luster
-## [A]natomical = [d]eployment
-## [oO]rgan = [a]pplication
-## [tT]issue = [s]ervice[g]roup ([r]eplicaset)
-## [cC]ellular = [s]ervice [u]nit  # alias Pod
-## [cC]ell = [cC]omponent
-## [h]ospitalization = [o]ffline [m]aintenance
-## [t]reat = [r]epair
-## [t]reatment = [r]epairing
-## [t]reated = [r]epaire
-
-#### functionaltypes
-## [mM]olecular = [o]perational
-## [m]olecule = [t]ask
-## [m]etabolite = [c]ontroller
-## [m]etabolic [p]rocessing = [s]upervision
-## [m]etabolism = [s]upervision
-## [a]mino [a]cid = [i]nstruction
-## [R]NA = [k]ernel
-## m[R]NA = [k]ernel[m]essage
-## [s]iRNA = [k]ernel[i]ask
-## [n]ucleotide = [m]onomeric[u]nit
-## [s]nv = [m]onomer[v]ariant
 
 ## ------------
 ## PREFIXES
@@ -225,7 +128,13 @@ prefixes:
   SAF: 'https://opensaf.sourceforge.io/SAI-Overview-B.05.03.AL.pdf'   # overview
   SAFAISAMF: 'https://opensaf.sourceforge.io/SAI-AIS-AMF-B.04.01.AL.pdf'  # Service Availability Management
 
+# ordered list of prefixcommon biocontexts to be fetched
+# to resolve id prefixes and inline prefix variables
+# see: https://github.com/prefixcommons/biocontext/tree/master/registry
+# is: rdf rdfs owl xsd dc dcterms faldo foaf oa idot void prov dcat
+# --
 default_prefix: sodalink
+
 default_range: string
 
 # 2. The following prefix maps are retrieved from the
@@ -237,6 +146,8 @@ default_curi_maps:
   - semweb_context
 
 # The following 'standard' prefixes are also used.
+# Prefixes from public standard global namespaces
+# used in the model (e.g. rdf) are indicated.
 emit_prefixes:
   - rdf
   - rdfs
@@ -271,6 +182,9 @@ subsets:
 ## TYPES
 ## ------------
 
+# Main schema follows
+#
+# standard types
 imports:
   - biolinkml:types
 
@@ -507,6 +421,11 @@ types:
 ## ------------
 ## SLOTS
 ## ------------
+
+# Slots are properties that can be assigned to classes. The
+# set of slots available are defined in a slot dictionary,
+# declared at the schema level. Each key in the dictionary
+# is the slot name. The slot name must be unique.
 
 slots:
 
